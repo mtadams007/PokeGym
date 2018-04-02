@@ -1,7 +1,11 @@
+h1 {
+  margin: 0;
+}
+
 #roof {
   background-color: violet;
   height: 300px;
-  width: 940px;
+  width: 1040px;
   border-radius: 5px;
   margin: auto;
 }
@@ -9,6 +13,21 @@
 #mainBody {
   background-color: tan;
   height: 500px;
-  width: 900px;
+  width: 1000px;
   margin: auto;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+#michaelTrainer {
+  background-color: red;
+  height: 400px;
+  width: 400px;
+}
+
+#isaacTrainer {
+  background-color: blue;
+  height: 400px;
+  width: 400px;
 }
