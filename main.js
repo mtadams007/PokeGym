@@ -1,7 +1,7 @@
 //VARIABLES
 
-//colonel is my trainer
-let colonel;
+//michael contains Michael's pokemon
+let michael;
 //the pokemon that is being displayed
 let currentPokemon = 0;
 //which way the pokemon is facing for the switch pic button
@@ -48,17 +48,17 @@ let makeTrainer = () => {
 // CODE I MIGHT WANT TO KEEP AND TWEAK
 
 //changes pokemon backwards
-$('#previous').click(function(e) {
-  //If we're in danger of having the currentPokemon being negative, we start at the last pokemon
-  if (currentPokemon === 0) {
-    currentPokemon = army.length - 1;
-  } else {
-    currentPokemon--;
-  }
-  if (count(colonel)>1) {
-  changePokemon();
-  }
-})
+// $('#previous').click(function(e) {
+//   //If we're in danger of having the currentPokemon being negative, we start at the last pokemon
+//   if (currentPokemon === 0) {
+//     currentPokemon = army.length - 1;
+//   } else {
+//     currentPokemon--;
+//   }
+//   if (count(colonel)>1) {
+//   changePokemon();
+//   }
+// })
 
 
 //changes pokemon forwards

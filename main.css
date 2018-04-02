@@ -1,0 +1,14 @@
+#roof {
+  background-color: violet;
+  height: 300px;
+  width: 940px;
+  border-radius: 5px;
+  margin: auto;
+}
+
+#mainBody {
+  background-color: tan;
+  height: 500px;
+  width: 900px;
+  margin: auto;
+}
