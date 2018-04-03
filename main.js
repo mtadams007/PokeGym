@@ -1,10 +1,5 @@
 //VARIABLES
 
-//michael contains Michael's pokemon
-let michael;
-// Isaac's Trainer
-let isaac;
-
 //the pokemon that is being displayed
 let currentPokemon = 0;
 
@@ -79,6 +74,7 @@ function createPokemon(data){
 };
 
 
+
 // CODE I MIGHT WANT TO KEEP AND TWEAK
 
 //changes pokemon backwards
@@ -126,59 +122,7 @@ function createPokemon(data){
 // isOff = !isOff;
 // })
 
-//MOST LIKELY NOT GOING TO USE
 
-//Lets me know how many pokemon I have
-// let count = (obj) => {
-  // return Object.keys(obj).length;
-// }
-
-//construct a pokemon
-// class Pokemon {
-//   constructor(arr){
-//     this.name = arr[0];
-//     this.number = arr[1];
-//     this.frontPic = arr[2];
-//     this.backPic = arr[3];
-//     this.hp = arr[4];
-//     this.attack = arr[5];
-//     this.defense = arr[6];
-//     this.specialAttack = arr[7];
-//     this.specialDefense = arr[8];
-//     this.speed = arr[9];
-//     this.abilities = arr[10];
-//     this.type = arr[11];
-//   }
-// }
-
-//AJAX FUNCTION
-
-//to add New pokemon to an existing Trainer
-
-// let addPoke = (num) => {
-//   return $.ajax({
-//       url: `https://pokeapi.co/api/v2/pokemon/${num}`,
-//       type: 'GET',
-//       success: function(data) {
-//         pokeArray = [data.name, data.id, data.sprites.front_default, data.sprites.back_default, data.stats[5].base_stat, data.stats[4].base_stat, data.stats[3].base_stat,  data.stats[2].base_stat, data.stats[1].base_stat, data.stats[0].base_stat, data.abilities, data.types];
-//         console.log('heya');
-//         //creates new pokemon and pushes to the army
-//         friend = new Pokemon(pokeArray);
-//         army.push(friend);
-//       }
-//   })
-// }
-
-//creates one pokemon through ajax
-// let createPoke = (num) => {
-//   army = [];
-//   addPoke(num);
-// }
-
-
-//BUTTON RULES
-
-// LEFT ARRAY OF buttons
 
 //changes pokemon backwards
 // $('#previous').click(function(e) {
@@ -201,54 +145,7 @@ function createPokemon(data){
 //   }
 // })
 
-//plays the displayed pokemons sound
-// $('#sound').click(function(e) {
-//   let p = whichPokemon(colonel);
-//   let soundFile = `${colonel[p].number}.ogg`;
-//   let cry = new Audio(`audio/${soundFile}`);
-//   cry.play();
-// })
 
-//click to change picture
-// $('#newPic').click(function(e) {
-//   changePic();
-// })
-
-// Search input
-
-// $('#search').submit(function(e) {
-//   e.preventDefault();
-//   let pokeSearch = $('#searchField').val();
-//   console.log(pokeSearch)
-//   pokeSearch = pokeSearch.toLowerCase();
-//   let foundPokemon = findPokemon(colonel, pokeSearch);
-//   if (foundPokemon === 'bummer dude') {
-//     $('#searchField').val("NOT FOUND")
-//   } else {
-//     changePokemon();
-//     $('#searchField').val("")
-//   }
-// })
-
-//Adds a new Pokemon to the PokeDex
-
-// $('#addNewPoke').submit(function(e) {
-//   e.preventDefault();
-//   let newFriend = $('#addMe').val();
-//   addPoke([newFriend]).done(function(e) {
-//     makeTrainer();
-//   });
-//   $('#addMe').val("");
-// })
-
-//Deletes previous army and starts a new PokeDex
-
-// $('#changeTrainer').submit(function(e) {
-//   e.preventDefault();
-//   let newFriend = $('#changeMe').val();
-//   createPoke([newFriend]);
-//   $('#changeMe').val("");
-// })
 
 // RIGHT ARRAY OF BUTTONS
 
