@@ -1,5 +1,7 @@
 //VARIABLES
 
+// Isaac's Trainer
+let isaac;
 //colonel is my trainer
 let colonel;
 //the pokemon that is being displayed
@@ -46,7 +48,8 @@ let makeTrainer = (arr) => {
 
 // POKEMON CONSTRUCTER
 
-function PokemonObj(sprite, hp, attack, defense, abilities){
+function PokemonObj(name, sprite, hp, attack, defense, abilities){
+    this.name = name;
     this.sprite = sprite;
     this.hp = hp;
     this.attack = attack;
@@ -69,6 +72,7 @@ function abilityLoop(abilities){
 
 function createPokemon(data){ 
     pokemon[`${data.name}`] = new PokemonObj(
+        data.name,
         data.sprites.front_default,
         data.stats[5].base_stat,
         data.stats[4].base_stat,
