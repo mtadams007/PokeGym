@@ -5,7 +5,13 @@ h1 {
 
 }
 
+h2 {
+  font-size: 50px;
+  font-family: pokemon-font;
+  text-decoration: underline;
+}
 #roof {
+  text-align: center;
   background-color: violet;
   height: 300px;
   width: 1040px;
@@ -93,4 +99,9 @@ display: flex;
 
 #michael-right {
   margin-left: 150px;
+}
+
+h3 {
+  text-transform: uppercase;
+
 }
