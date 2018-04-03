@@ -16,37 +16,37 @@ function getPokeData(endpoint, done) {
 // CLASSES
 
 //construct a trainer
-//class Trainer {
-//  constructor(arr) {
-//    let i = 0;
-//    while (i<arr.length) {
-//      this[i] = arr[i];
-//      i++;
-//    }
-//  }
-//  all() {
-//    let soldiers = [];
-//    let x;
-//    for (x in this) {
-//      soldiers.push(this[x]);
-//    }
-//    return soldiers;
-//  }
-//  get(name){
-//    let x;
-//    for (x in this) {
-//      if (name === this[x].name){
-//        return this[x];
-//      }
-//    }
-//  }
-//}
-//
-//let makeTrainer = (arr) => {
-//  //first sort the pokemon by id number
-//  sortFriends(arr);
-//  return new Trainer(arr);
-//}
+class Trainer {
+ constructor(arr) {
+   let i = 0;
+   while (i<arr.length) {
+     this[i] = arr[i];
+     i++;
+   }
+ }
+ all() {
+   let soldiers = [];
+   let x;
+   for (x in this) {
+     soldiers.push(this[x]);
+   }
+   return soldiers;
+ }
+ get(name){
+   let x;
+   for (x in this) {
+     if (name === this[x].name){
+       return this[x];
+     }
+   }
+ }
+}
+
+let makeTrainer = (arr) => {
+ //first sort the pokemon by id number
+ sortFriends(arr);
+ return new Trainer(arr);
+}
 
 // POKEMON CONSTRUCTER
 
@@ -106,7 +106,7 @@ getPokeData(`${apiBase}94`, michaelPokemon);
 getPokeData(`${apiBase}129`, michaelPokemon);
 
 function showPokemon(trainer, key, divId){
-    let v = `<p id="sprite" class="pokedata-show"><img src="${trainer[key].sprite}"></p>`;
+    let v = `<p id="sprite" class="pokedata-show"><img src='${trainer[key].sprite}'></p>`;
     let w = `<p class="pokedata-show">HP: ${trainer[key].hp}</p>`;
     let x = `<p class="pokedata-show">ATTACK: ${trainer[key].attack}</p>`;
     let y = `<p class="pokedata-show">DEFENSE: ${trainer[key].defense}</p>`;
