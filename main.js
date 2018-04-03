@@ -2,10 +2,13 @@
 
 //
 let apiBase = "https://pokeapi.co/api/v2/pokemon/";
-//michael contains Michael's pokemon
+//Michael's trainer array
 let michael = [];
-// Isaac's Trainer
+// Isaac's Trainer array
 let isaac = [];
+//the trainer objects
+let michaelLeader = {};
+let isaacLeader = {};
 //the pokemon that is being displayed
 let currentPokemon = 0;
 // wrapper for ajax call
@@ -79,7 +82,7 @@ function isaacPokemon(data){
         abilityLoop(data.abilities)
     )
     console.log(`one pokemon '${data.name}' added to hash`);
-    isaac.push(pokemon);   
+    isaac.push(pokemon);
 };
 
 function michaelPokemon(data){
@@ -96,19 +99,32 @@ function michaelPokemon(data){
 };
 
 function showPokemon(trainer, key, divId){
-    let v = `<p id="sprite" class="pokedata-show"><img src='${trainer[key].sprite}'></p>`;
-    let w = `<p class="pokedata-show">HP: ${trainer[key].hp}</p>`;
-    let x = `<p class="pokedata-show">ATTACK: ${trainer[key].attack}</p>`;
-    let y = `<p class="pokedata-show">DEFENSE: ${trainer[key].defense}</p>`;
-    let z = `<p class="pokedata-show">ABILITIES: ${trainer[key].abilities}</p>`;
+    let v = `<p id="sprite" class='pokedata-show'><img src='${trainer[key].sprite}'></p>`;
+    let w = `<p class='pokedata-show'>HP: ${trainer[key].hp}</p>`;
+    let x = `<p class='pokedata-show'>ATTACK: ${trainer[key].attack}</p>`;
+    let y = `<p class='pokedata-show'>DEFENSE: ${trainer[key].defense}</p>`;
+    let z = `<p class='pokedata-show'>ABILITIES: ${trainer[key].abilities}</p>`;
 
     if ($('.pokedata-show').length > 1){
         $('.pokedata-show').remove();
-        $(`#${divId}`).append([v,w,x,y,z])
-    } else {
-        $(`#${divId}`).append([v,w,x,y,z]);
-    }
+        // $(`#${divId}`).append([v,w,x,y,z])
+    } //else {
+    //     $(`#${divId}`).append([v,w,x,y,z]);
+    // }
+    $(`#${divId}`).append([v,w,x,y,z]);
 }
+
+$('#michael-on').click(function(powerOn){
+    michaelLeader = makeTrainer(michael);
+    showPokemon(michaelLeader, 0, 'michaelTrainer');
+  });
+
+$('#isaac-on').click(function(powerOn){
+    isaacLeader = makeTrainer(isaac);
+    showPokemon(isaacLeader, 0, 'isaacTrainer');
+  });
+
+
 
 getPokeData(`${apiBase}6`, isaacPokemon);
 getPokeData(`${apiBase}66`, isaacPokemon);
