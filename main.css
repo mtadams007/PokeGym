@@ -18,7 +18,7 @@ h1 {
   height: 500px;
   width: 1000px;
   margin: auto;
-  display: flex;
+display: flex;
   justify-content: space-around;
   text-align: center;
 }
@@ -49,3 +49,21 @@ h1 {
   width: 20px;
 } */
 
+.poke-button {
+    margin-top: 5px;
+    height: 50px;
+    width: 50px;
+    background-color: yellow;
+    display: inline-block;
+}
+
+.on-button {
+    height: 45px;
+    width: 50px;
+    background-color: blue;
+    display: inline-block;
+}
+
+.unpressed {
+    box-shadow: 5px 5px solid;
+}

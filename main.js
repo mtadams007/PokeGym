@@ -17,6 +17,15 @@ function getPokeData(endpoint, done) {
 
 //construct a trainer
 
+function pressbutton(){
+    $(this).removeClass('.unpressed');
+    $(this).addClass('.pressed');
+    $(this).removeClass('.pressed');
+    $(this).addClass('.unpressed');
+}
+
+$('.btn').on("click", pressbutton);
+
 class Trainer {
  constructor(arr) {
    let i = 0;
