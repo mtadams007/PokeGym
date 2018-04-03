@@ -43,8 +43,6 @@ class Trainer {
 }
 
 let makeTrainer = (arr) => {
- //first sort the pokemon by id number
- sortFriends(arr);
  return new Trainer(arr);
 }
 
@@ -119,3 +117,6 @@ function showPokemon(trainer, key, divId){
         $(`#${divId}`).append([v,w,x,y,z]);
     }
 }
+
+$('#michael-on').click(function(powerOn){
+    makeTrainer(michael);
