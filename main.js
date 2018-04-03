@@ -1,15 +1,16 @@
-//VARIABLES
 
-//
 let apiBase = "https://pokeapi.co/api/v2/pokemon/";
-//Michael's trainer array
+
+// pokemon objects get stored here until they are passed into trainerClass
 let michael = [];
-// Isaac's Trainer array
 let isaac = [];
-//the trainer objects
+
+// These are empty objects that will later become trainer objects (via the trainer class)
 let michaelLeader = {};
 let isaacLeader = {};
-//the pokemon that is being displayed
+
+// this variable is incremented as we cycle through the pokemon
+// cannot be less then 0 or greater than 2 (since there are only 3 pokemon per trainer)
 let currentPokemon = 0;
 
 // wrapper for ajax call
@@ -17,17 +18,8 @@ function getPokeData(endpoint, done) {
     $.ajax({url: endpoint , success: done});
 }
 
-// CLASSES
-
-//construct a trainer
-
-function pressbutton(){
-    $(this).removeClass('.unpressed');
-    $(this).addClass('.pressed');
-    $(this).removeClass('.pressed');
-    $(this).addClass('.unpressed');
-}
-
+// TRAINER CLASS
+// is passed an array of pokemon which then stores it inside of a trainer object (pre-defined above)
 class Trainer {
  constructor(arr) {
    let i = 0;
@@ -54,11 +46,12 @@ class Trainer {
  }
 }
 
+// trainer constructor
 let makeTrainer = (arr) => {
  return new Trainer(arr);
 }
-// POKEMON CONSTRUCTER
 
+//POKEMON CLASS
 function PokemonObj(name, sprite, hp, attack, defense, abilities){
     this.name = name;
     this.sprite = sprite;
@@ -68,8 +61,7 @@ function PokemonObj(name, sprite, hp, attack, defense, abilities){
     this.abilities = abilities;
 }
 
-// DEPENDANCY
-
+// Function that loops through data.abilities and returns an array of strings rather than an array of objects.
 function abilityLoop(abilities){
     let abilityArr = [];
     for(let i = 0; i < abilities.length; i++){
@@ -78,8 +70,8 @@ function abilityLoop(abilities){
     return abilityArr;
 }
 
-// happens on success of the api call
-
+// Constructor functions
+// push's each pokemon object into a temporary array
 function isaacPokemon(data){
      let pokemon = new PokemonObj(
         data.name,
@@ -89,7 +81,7 @@ function isaacPokemon(data){
         data.stats[3].base_stat,
         abilityLoop(data.abilities)
     )
-    console.log(`one pokemon '${data.name}' added to hash`);
+    console.log(`one pokemon '${data.name}' added to 'isaac'`);
     isaac.push(pokemon);
 };
 
@@ -106,6 +98,8 @@ function michaelPokemon(data){
     michael.push(pokemon);
 };
 
+// Appends pokemon data into the trainers corresponding section.
+// DOM MANIPULATION
 function showPokemon(trainer, key, divId){
     let v = `<p id="sprite" class='pokedata-show'><img src='${trainer[key].sprite}'></p>`;
     let w = `<p class='pokedata-show'>HP: ${trainer[key].hp}</p>`;
@@ -115,12 +109,11 @@ function showPokemon(trainer, key, divId){
 
     if ($('.pokedata-show').length > 1){
         $('.pokedata-show').remove();
-        // $(`#${divId}`).append([v,w,x,y,z])
-    } //else {
-    //     $(`#${divId}`).append([v,w,x,y,z]);
-    // }
+    }
     $(`#${divId}`).append([v,w,x,y,z]);
 }
+
+// EVENT LISTENERS
 
 $('#michael-left').click(function(){
     if(currentPokemon == 0){
@@ -158,19 +151,19 @@ $('#isaac-right').click(function(){
     showPokemon(isaacLeader, currentPokemon, 'isaacTrainer');
 })
 
-
 $('#michael-on').click(function(powerOn){
-  console.log('mclick');
+    currentPokemon = 0;
     michaelLeader = makeTrainer(michael);
     showPokemon(michaelLeader, currentPokemon, 'michaelTrainer');
   });
 
 $('#isaac-on').click(function(powerOn){
-  console.log('clicked');
+    currentPokemon = 0;
     isaacLeader = makeTrainer(isaac);
     showPokemon(isaacLeader, currentPokemon, 'isaacTrainer');
   });
 
+// AJAX CALLS
 
 getPokeData(`${apiBase}6`, isaacPokemon);
 getPokeData(`${apiBase}66`, isaacPokemon);
