@@ -62,7 +62,7 @@ function PokemonObj(name, sprite, hp, attack, defense, abilities){
 // DEPENDANCY
 
 function abilityLoop(abilities){
-    let abilityArr = [];
+    let abilityArr = []; 
     for(let i = 0; i < abilities.length; i++){
         abilityArr.push(" " + abilities[i].ability.name);
     }
@@ -71,13 +71,8 @@ function abilityLoop(abilities){
 
 // happens on success of the api call
 
-<<<<<<< HEAD
 function isaacPokemon(data){
      let pokemon = new PokemonObj(
-=======
-function createPokemon(data){
-    pokemon[`${data.name}`] = new PokemonObj(
->>>>>>> 1df5806ee9e1fe95c7823e36f0174061263f124b
         data.name,
         data.sprites.front_default,
         data.stats[5].base_stat,
@@ -89,7 +84,6 @@ function createPokemon(data){
     isaac.push(pokemon);   
 };
 
-<<<<<<< HEAD
 function michaelPokemon(data){
      let pokemon = new PokemonObj(
         data.name,
@@ -110,124 +104,3 @@ getPokeData(`${apiBase}127`, isaacPokemon);
 getPokeData(`${apiBase}68`, michaelPokemon);
 getPokeData(`${apiBase}94`, michaelPokemon);
 getPokeData(`${apiBase}129`, michaelPokemon);
-
-=======
-function showIsaacPokemon(trainer, key, divId){
-    let v = `<p id="sprite" class="pokedata-show"><img src="${trainer[key].sprite}"></p>`;
-    let w = `<p class="pokedata-show">HP: ${trainer[key].hp}</p>`;
-    let x = `<p class="pokedata-show">ATTACK: ${trainer[key].attack}</p>`;
-    let y = `<p class="pokedata-show">DEFENSE: ${trainer[key].defense}</p>`;
-    let z = `<p class="pokedata-show">ABILITIES: ${trainer[key].abilities}</p>`;
-
-    if ($('.pokedata-show').length > 1){
-        $('.pokedata-show').remove();
-        $(`#${divId}`).append([v,w,x,y,z])
-    } else {
-        $(`#${divId}`).append([v,w,x,y,z]);
-    }
-}
->>>>>>> 1df5806ee9e1fe95c7823e36f0174061263f124b
-
-// CODE I MIGHT WANT TO KEEP AND TWEAK
-
-//changes pokemon backwards
-// $('#previous').click(function(e) {
-//   //If we're in danger of having the currentPokemon being negative, we start at the last pokemon
-//   if (currentPokemon === 0) {
-//     currentPokemon = army.length - 1;
-//   } else {
-//     currentPokemon--;
-//   }
-//   if (count(colonel)>1) {
-//   changePokemon();
-//   }
-// })
-
-
-//changes pokemon forwards
-// $('#next').click(function(e) {
-//   currentPokemon++;
-//   if (count(colonel)>1) {
-//   changePokemon();
-//   }
-// })
-
-//how to change pokemon
-// let changePokemon = () => {
-//   $('#leftScreen').html('');
-//   $('#rightScreen').html('');
-//   let p = whichPokemon(colonel);
-//   $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}' id='pic'>`);
-//   $('#leftScreen').append(`<h2 id='pokeName'>No ${colonel[p].number}:  ${colonel[p].name}</h2>`);
-//   displayStats(colonel[p]);
-//   isFront = true;
-// }
-
-// if (isOff) {
-//   makeTrainer();
-//   changePokemon();
-// } else {
-//   colonel = {};
-//   $('#leftScreen').html('');
-//   $('#rightScreen').html('');
-//   currentPokemon = 0;
-// }
-// isOff = !isOff;
-// })
-
-
-
-//changes pokemon backwards
-// $('#previous').click(function(e) {
-  //If we're in danger of having the currentPokemon being negative, we start at the last pokemon
-  // if (currentPokemon === 0) {
-  //   currentPokemon = army.length - 1;
-  // } else {
-  //   currentPokemon--;
-  // }
-  // if (count(colonel)>1) {
-  // changePokemon();
-  // }
-// })
-
-//changes pokemon forwards
-// $('#next').click(function(e) {
-//   currentPokemon++;
-//   if (count(colonel)>1) {
-//   changePokemon();
-//   }
-// })
-
-
-
-// RIGHT ARRAY OF BUTTONS
-
-//shows abilities upon clicking button
-// $('#abilities').click(function(e) {
-//   $('#rightScreen').html('');
-//   let p = whichPokemon(colonel);
-//   let skillz = getAbilities(colonel[p]);
-//   if (skillz.length === 3) {
-//     $('#rightScreen').html(`<h3 class="hideMe">${skillz[2]}</h3><h3 class="hideMe">${skillz[1]}</h3><h3 class="hideMe">${skillz[0]}</h3>`);
-//   } else if (skillz.length === 2) {
-//     $('#rightScreen').html(`<h3 class="hideMe">${skillz[1]}</h3><h3 class="hideMe">${skillz[0]}</h3>`);
-//   } else {
-//     $('#rightScreen').html(`<h3 class="hideMe">${skillz[0]}</h3>`);
-//   }
-//   $('#rightScreen').prepend(`<h1 id='#rightDescriptor' class="hideMe">ABILITIES</h1>`)
-// })
-
-//Turns on pokedex and creates my trainer
-// $('#powerButton').click(function(powerOn){
-
-//   if (isOff) {
-//     makeTrainer();
-//     changePokemon();
-//   } else {
-//     colonel = {};
-//     $('#leftScreen').html('');
-//     $('#rightScreen').html('');
-//     currentPokemon = 0;
-//   }
-//   isOff = !isOff;
-// })
