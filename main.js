@@ -73,7 +73,7 @@ function createPokemon(data){
     console.log(`one pokemon '${data.name}' added to hash`);
 };
 
-function showIsaacPokemon(trainer, key, divId){
+function showPokemon(trainer, key, divId){
     let v = `<p id="sprite" class="pokedata-show"><img src="${trainer[key].sprite}"></p>`;
     let w = `<p class="pokedata-show">HP: ${trainer[key].hp}</p>`;
     let x = `<p class="pokedata-show">ATTACK: ${trainer[key].attack}</p>`;
