@@ -1,5 +1,7 @@
 //VARIABLES
 
+// Isaac's Trainer
+let isaac;
 //colonel is my trainer
 let colonel;
 //the pokemon that is being displayed
@@ -44,6 +46,40 @@ let makeTrainer = (arr) => {
   return new Trainer(arr);
 }
 
+// POKEMON CONSTRUCTER
+
+function PokemonObj(name, sprite, hp, attack, defense, abilities){
+    this.name = name;
+    this.sprite = sprite;
+    this.hp = hp;
+    this.attack = attack;
+    this.defense = defense;
+    this.abilities = abilities;
+}
+
+// DEPENDANCY
+
+function abilityLoop(abilities){
+    let abilityArr = []; 
+    for(let i = 0; i < abilities.length; i++){
+        abilityArr.push(" " + abilities[i].ability.name);
+    }
+    return abilityArr;
+}
+
+// happens on success of the api call
+
+function createPokemon(data){ 
+    pokemon[`${data.name}`] = new PokemonObj(
+        data.name,
+        data.sprites.front_default,
+        data.stats[5].base_stat,
+        data.stats[4].base_stat,
+        data.stats[3].base_stat,
+        abilityLoop(data.abilities)
+    )
+    console.log(`one pokemon '${data.name}' added to hash`);
+};
 
 //construct a pokemon
 // class Pokemon {
