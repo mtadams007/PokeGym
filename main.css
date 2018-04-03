@@ -1,0 +1,50 @@
+h1 {
+  margin-top: 0;
+  font-family: pokemon-font;
+  font-size: 20px;
+
+}
+
+#roof {
+  background-color: violet;
+  height: 300px;
+  width: 1040px;
+  border-radius: 5px;
+  margin: auto;
+}
+
+#mainBody {
+  background-color: tan;
+  height: 500px;
+  width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+#michaelTrainer {
+  background-color: red;
+  height: 400px;
+  width: 400px;
+}
+
+#isaacTrainer {
+  background-color: blue;
+  height: 400px;
+  width: 400px;
+}
+
+/* .left {
+  display: block;
+  background-color: yellow;
+  height: 20px;
+  width: 20px;
+}
+
+.right {
+  display: block;
+  background-color: yellow;
+  height: 20px;
+  width: 20px;
+} */

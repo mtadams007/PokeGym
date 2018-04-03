@@ -1,15 +1,12 @@
 //VARIABLES
 
+//michael contains Michael's pokemon
+let michael;
 // Isaac's Trainer
 let isaac;
-//colonel is my trainer
-let colonel;
+
 //the pokemon that is being displayed
 let currentPokemon = 0;
-//which way the pokemon is facing for the switch pic button
-let isFront = true;
-//checks if the pokedex is on or off
-let isOff = true;
 
 // CLASSES
 
@@ -81,6 +78,60 @@ function createPokemon(data){
     console.log(`one pokemon '${data.name}' added to hash`);
 };
 
+// CODE I MIGHT WANT TO KEEP AND TWEAK
+
+//changes pokemon backwards
+// $('#previous').click(function(e) {
+//   //If we're in danger of having the currentPokemon being negative, we start at the last pokemon
+//   if (currentPokemon === 0) {
+//     currentPokemon = army.length - 1;
+//   } else {
+//     currentPokemon--;
+//   }
+//   if (count(colonel)>1) {
+//   changePokemon();
+//   }
+// })
+
+
+//changes pokemon forwards
+// $('#next').click(function(e) {
+//   currentPokemon++;
+//   if (count(colonel)>1) {
+//   changePokemon();
+//   }
+// })
+
+//how to change pokemon
+// let changePokemon = () => {
+//   $('#leftScreen').html('');
+//   $('#rightScreen').html('');
+//   let p = whichPokemon(colonel);
+//   $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}' id='pic'>`);
+//   $('#leftScreen').append(`<h2 id='pokeName'>No ${colonel[p].number}:  ${colonel[p].name}</h2>`);
+//   displayStats(colonel[p]);
+//   isFront = true;
+// }
+
+// if (isOff) {
+//   makeTrainer();
+//   changePokemon();
+// } else {
+//   colonel = {};
+//   $('#leftScreen').html('');
+//   $('#rightScreen').html('');
+//   currentPokemon = 0;
+// }
+// isOff = !isOff;
+// })
+
+//MOST LIKELY NOT GOING TO USE
+
+//Lets me know how many pokemon I have
+// let count = (obj) => {
+  // return Object.keys(obj).length;
+// }
+
 //construct a pokemon
 // class Pokemon {
 //   constructor(arr){
@@ -122,6 +173,7 @@ function createPokemon(data){
 //   army = [];
 //   addPoke(num);
 // }
+
 
 //BUTTON RULES
 
@@ -196,6 +248,7 @@ function createPokemon(data){
 //   createPoke([newFriend]);
 //   $('#changeMe').val("");
 // })
+
 // RIGHT ARRAY OF BUTTONS
 
 //shows abilities upon clicking button
@@ -215,6 +268,7 @@ function createPokemon(data){
 
 //Turns on pokedex and creates my trainer
 // $('#powerButton').click(function(powerOn){
+
 //   if (isOff) {
 //     makeTrainer();
 //     changePokemon();
@@ -227,106 +281,3 @@ function createPokemon(data){
 //   isOff = !isOff;
 // })
 
-//click on stats to display
-// $('#stats').click(function(e) {
-//   let p = whichPokemon(colonel);
-//   displayStats(colonel[p]);
-// })
-
-
-//SUB FUNCTIONS
-
-
-//creates the array of pokemon to make trainer
-// let createFriends = (arr) => {
-//   let i = 0;
-//   while (i<arr.length) {
-//     createPoke(arr[i]);
-//     i++;
-//   }
-// }
-
-//Puts pokemon in order by their id number
-// let sortFriends = (arr) => {
-//   arr.sort(function(a, b){
-//     return a.number-b.number
-//   })
-// }
-
-//made to create trainer after everything loads
-
-
-//Lets me know how many pokemon I have
-// let count = (obj) => {
-//   return Object.keys(obj).length;
-// }
-
-// uses modulus to cycle through pokemon
-// let whichPokemon = (obj) => {
-//   let mod = count(obj);
-//   let counter = currentPokemon%mod;
-//   counter = Math.abs(counter);
-//   return counter;
-// }
-
-//how to change pokemon
-// let changePokemon = () => {
-//   $('#leftScreen').html('');
-//   $('#rightScreen').html('');
-//   let p = whichPokemon(colonel);
-//   $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}' id='pic'>`);
-//   $('#leftScreen').append(`<h2 id='pokeName'>No ${colonel[p].number}:  ${colonel[p].name}</h2>`);
-//   displayStats(colonel[p]);
-//   isFront = true;
-// }
-
-//Changes picture of pokemon from front to back
-// let changePic = () => {
-//   $('#leftScreen').html('');
-//   let p = whichPokemon(colonel);
-//   $('#leftScreen').append(`<h2 id='pokeName'>${colonel[p].name}</h2>`);
-//   if (isFront) {
-//     $('#leftScreen').prepend(`<img src='${colonel[p].backPic}'>`);
-//   } else {
-//     $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}'>`)
-//   }
-//   isFront = !isFront;
-// }
-
-//shows the stats of a pokemon
-// let displayStats = (obj) => {
-//   $('#rightScreen').html('');
-//   $('#rightScreen').append(`<h3 class="hideMe"> HP: ${obj.hp}</h3><h3 class="hideMe"> ATTACK: ${obj.attack}</h3><h3 class="hideMe"> DEFENSE: ${obj.defense}</h3><h3 class="hideMe"> SPECIAL ATTACK: ${obj.specialAttack}</h3><h3 class="hideMe"> SPECIAL DEFENSE: ${obj.specialDefense}</h3><h3 class="hideMe"> SPEED: ${obj.speed}</h3>`);
-//   $('#rightScreen').prepend(`<h1 id='#rightDescriptor' class="hideMe">STATS</h1>`)
-// }
-
-//pull abilities from pokemon
-// let getAbilities = (obj) => {
-//   let skillz = [];
-//   let i = 0;
-//   while (i<obj.abilities.length) {
-//     let ability = obj.abilities[i].ability.name;
-//     skillz.push(ability);
-//     i++;
-//   }
-//   return skillz;
-// }
-
-//function to find a pokemon by name given a trainer and a name
-// let findPokemon = (obj,str) => {
-//   let i = 0
-//   let lengthOfPokemon = count(obj);
-//   while (i<lengthOfPokemon) {
-//     if (str === obj[i].name) {
-//       currentPokemon = i;
-//       return obj.get(str);
-//     }
-//     i++;
-//   }
-//   return 'bummer dude';
-// }
-
-//CALLS FOR PAGE
-
-//creates my army for the Pokedex
-// createFriends([68,94,'magikarp']);
