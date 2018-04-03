@@ -115,11 +115,13 @@ function showPokemon(trainer, key, divId){
 }
 
 $('#michael-on').click(function(powerOn){
+  console.log('mclick');
     michaelLeader = makeTrainer(michael);
     showPokemon(michaelLeader, 0, 'michaelTrainer');
   });
 
 $('#isaac-on').click(function(powerOn){
+  console.log('clicked');
     isaacLeader = makeTrainer(isaac);
     showPokemon(isaacLeader, 0, 'isaacTrainer');
   });
