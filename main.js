@@ -16,6 +16,7 @@ function getPokeData(endpoint, done) {
 // CLASSES
 
 //construct a trainer
+
 class Trainer {
  constructor(arr) {
    let i = 0;
@@ -45,7 +46,6 @@ class Trainer {
 let makeTrainer = (arr) => {
  return new Trainer(arr);
 }
-
 // POKEMON CONSTRUCTER
 
 function PokemonObj(name, sprite, hp, attack, defense, abilities){
@@ -79,7 +79,7 @@ function isaacPokemon(data){
         abilityLoop(data.abilities)
     )
     console.log(`one pokemon '${data.name}' added to hash`);
-    isaac.push(pokemon);
+    isaac.push(pokemon);   
 };
 
 function michaelPokemon(data){
@@ -94,14 +94,6 @@ function michaelPokemon(data){
     console.log(`one pokemon '${data.name}' added to hash`);
     michael.push(pokemon);
 };
-
-getPokeData(`${apiBase}6`, isaacPokemon);
-getPokeData(`${apiBase}66`, isaacPokemon);
-getPokeData(`${apiBase}127`, isaacPokemon);
-
-getPokeData(`${apiBase}68`, michaelPokemon);
-getPokeData(`${apiBase}94`, michaelPokemon);
-getPokeData(`${apiBase}129`, michaelPokemon);
 
 function showPokemon(trainer, key, divId){
     let v = `<p id="sprite" class="pokedata-show"><img src='${trainer[key].sprite}'></p>`;
@@ -118,5 +110,10 @@ function showPokemon(trainer, key, divId){
     }
 }
 
-$('#michael-on').click(function(powerOn){
-    makeTrainer(michael);
+getPokeData(`${apiBase}6`, isaacPokemon);
+getPokeData(`${apiBase}66`, isaacPokemon);
+getPokeData(`${apiBase}127`, isaacPokemon);
+
+getPokeData(`${apiBase}68`, michaelPokemon);
+getPokeData(`${apiBase}94`, michaelPokemon);
+getPokeData(`${apiBase}129`, michaelPokemon);
