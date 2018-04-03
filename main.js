@@ -67,8 +67,7 @@ function abilityLoop(abilities){
     return abilityArr;
 }
 
-// happens on success of the api call nested in checkPokehash
-// abilities parameter = function that
+// happens on success of the api call
 
 function createPokemon(data){ 
     pokemon[`${data.name}`] = new PokemonObj(
