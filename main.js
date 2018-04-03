@@ -1,47 +1,52 @@
 //VARIABLES
 
+//
+let apiBase = "https://pokeapi.co/api/v2/pokemon/";
 //michael contains Michael's pokemon
-let michael;
+let michael = [];
 // Isaac's Trainer
-let isaac;
-
+let isaac = [];
 //the pokemon that is being displayed
 let currentPokemon = 0;
+// wrapper for ajax call
+function getPokeData(endpoint, done) {
+    $.ajax({url: endpoint , success: done});
+}
 
 // CLASSES
 
 //construct a trainer
-class Trainer {
-  constructor(arr) {
-    let i = 0;
-    while (i<arr.length) {
-      this[i] = arr[i];
-      i++;
-    }
-  }
-  all() {
-    let soldiers = [];
-    let x;
-    for (x in this) {
-      soldiers.push(this[x]);
-    }
-    return soldiers;
-  }
-  get(name){
-    let x;
-    for (x in this) {
-      if (name === this[x].name){
-        return this[x];
-      }
-    }
-  }
-}
-
-let makeTrainer = (arr) => {
-  //first sort the pokemon by id number
-  sortFriends(arr);
-  return new Trainer(arr);
-}
+//class Trainer {
+//  constructor(arr) {
+//    let i = 0;
+//    while (i<arr.length) {
+//      this[i] = arr[i];
+//      i++;
+//    }
+//  }
+//  all() {
+//    let soldiers = [];
+//    let x;
+//    for (x in this) {
+//      soldiers.push(this[x]);
+//    }
+//    return soldiers;
+//  }
+//  get(name){
+//    let x;
+//    for (x in this) {
+//      if (name === this[x].name){
+//        return this[x];
+//      }
+//    }
+//  }
+//}
+//
+//let makeTrainer = (arr) => {
+//  //first sort the pokemon by id number
+//  sortFriends(arr);
+//  return new Trainer(arr);
+//}
 
 // POKEMON CONSTRUCTER
 
@@ -66,8 +71,8 @@ function abilityLoop(abilities){
 
 // happens on success of the api call
 
-function createPokemon(data){
-    pokemon[`${data.name}`] = new PokemonObj(
+function isaacPokemon(data){
+     let pokemon = new PokemonObj(
         data.name,
         data.sprites.front_default,
         data.stats[5].base_stat,
@@ -76,9 +81,31 @@ function createPokemon(data){
         abilityLoop(data.abilities)
     )
     console.log(`one pokemon '${data.name}' added to hash`);
+    isaac.push(pokemon);
 };
 
-function showIsaacPokemon(trainer, key, divId){
+function michaelPokemon(data){
+     let pokemon = new PokemonObj(
+        data.name,
+        data.sprites.front_default,
+        data.stats[5].base_stat,
+        data.stats[4].base_stat,
+        data.stats[3].base_stat,
+        abilityLoop(data.abilities)
+    )
+    console.log(`one pokemon '${data.name}' added to hash`);
+    michael.push(pokemon);
+};
+
+getPokeData(`${apiBase}6`, isaacPokemon);
+getPokeData(`${apiBase}66`, isaacPokemon);
+getPokeData(`${apiBase}127`, isaacPokemon);
+
+getPokeData(`${apiBase}68`, michaelPokemon);
+getPokeData(`${apiBase}94`, michaelPokemon);
+getPokeData(`${apiBase}129`, michaelPokemon);
+
+function showPokemon(trainer, key, divId){
     let v = `<p id="sprite" class="pokedata-show"><img src="${trainer[key].sprite}"></p>`;
     let w = `<p class="pokedata-show">HP: ${trainer[key].hp}</p>`;
     let x = `<p class="pokedata-show">ATTACK: ${trainer[key].attack}</p>`;
@@ -92,107 +119,3 @@ function showIsaacPokemon(trainer, key, divId){
         $(`#${divId}`).append([v,w,x,y,z]);
     }
 }
-
-// CODE I MIGHT WANT TO KEEP AND TWEAK
-
-//changes pokemon backwards
-// $('#previous').click(function(e) {
-//   //If we're in danger of having the currentPokemon being negative, we start at the last pokemon
-//   if (currentPokemon === 0) {
-//     currentPokemon = army.length - 1;
-//   } else {
-//     currentPokemon--;
-//   }
-//   if (count(colonel)>1) {
-//   changePokemon();
-//   }
-// })
-
-
-//changes pokemon forwards
-// $('#next').click(function(e) {
-//   currentPokemon++;
-//   if (count(colonel)>1) {
-//   changePokemon();
-//   }
-// })
-
-//how to change pokemon
-// let changePokemon = () => {
-//   $('#leftScreen').html('');
-//   $('#rightScreen').html('');
-//   let p = whichPokemon(colonel);
-//   $('#leftScreen').prepend(`<img src='${colonel[p].frontPic}' id='pic'>`);
-//   $('#leftScreen').append(`<h2 id='pokeName'>No ${colonel[p].number}:  ${colonel[p].name}</h2>`);
-//   displayStats(colonel[p]);
-//   isFront = true;
-// }
-
-// if (isOff) {
-//   makeTrainer();
-//   changePokemon();
-// } else {
-//   colonel = {};
-//   $('#leftScreen').html('');
-//   $('#rightScreen').html('');
-//   currentPokemon = 0;
-// }
-// isOff = !isOff;
-// })
-
-
-
-//changes pokemon backwards
-// $('#previous').click(function(e) {
-  //If we're in danger of having the currentPokemon being negative, we start at the last pokemon
-  // if (currentPokemon === 0) {
-  //   currentPokemon = army.length - 1;
-  // } else {
-  //   currentPokemon--;
-  // }
-  // if (count(colonel)>1) {
-  // changePokemon();
-  // }
-// })
-
-//changes pokemon forwards
-// $('#next').click(function(e) {
-//   currentPokemon++;
-//   if (count(colonel)>1) {
-//   changePokemon();
-//   }
-// })
-
-
-
-// RIGHT ARRAY OF BUTTONS
-
-//shows abilities upon clicking button
-// $('#abilities').click(function(e) {
-//   $('#rightScreen').html('');
-//   let p = whichPokemon(colonel);
-//   let skillz = getAbilities(colonel[p]);
-//   if (skillz.length === 3) {
-//     $('#rightScreen').html(`<h3 class="hideMe">${skillz[2]}</h3><h3 class="hideMe">${skillz[1]}</h3><h3 class="hideMe">${skillz[0]}</h3>`);
-//   } else if (skillz.length === 2) {
-//     $('#rightScreen').html(`<h3 class="hideMe">${skillz[1]}</h3><h3 class="hideMe">${skillz[0]}</h3>`);
-//   } else {
-//     $('#rightScreen').html(`<h3 class="hideMe">${skillz[0]}</h3>`);
-//   }
-//   $('#rightScreen').prepend(`<h1 id='#rightDescriptor' class="hideMe">ABILITIES</h1>`)
-// })
-
-//Turns on pokedex and creates my trainer
-// $('#powerButton').click(function(powerOn){
-
-//   if (isOff) {
-//     makeTrainer();
-//     changePokemon();
-//   } else {
-//     colonel = {};
-//     $('#leftScreen').html('');
-//     $('#rightScreen').html('');
-//     currentPokemon = 0;
-//   }
-//   isOff = !isOff;
-// })
