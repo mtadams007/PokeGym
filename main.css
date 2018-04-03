@@ -33,27 +33,15 @@ display: flex;
   background-color: honeydew;
   height: 400px;
   width: 400px;
+  border-radius: 10px;
 }
 
 #isaacTrainer {
   background-color: honeydew;
   height: 400px;
   width: 400px;
+  border-radius: 10px;
 }
-
-/* .left {
-  display: block;
-  background-color: yellow;
-  height: 20px;
-  width: 20px;
-}
-
-.right {
-  display: block;
-  background-color: yellow;
-  height: 20px;
-  width: 20px;
-} */
 
 .poke-button {
     margin-top: 5px;
@@ -103,5 +91,4 @@ display: flex;
 
 h3 {
   text-transform: uppercase;
-
 }
