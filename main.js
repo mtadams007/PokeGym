@@ -107,6 +107,7 @@ function michaelPokemon(data){
 };
 
 function showPokemon(trainer, key, divId){
+    let u = `<h3 class="pokedata-show">${trainer[key].name}</h3>`
     let v = `<p id="sprite" class='pokedata-show'><img src='${trainer[key].sprite}'></p>`;
     let w = `<p class='pokedata-show'>HP: ${trainer[key].hp}</p>`;
     let x = `<p class='pokedata-show'>ATTACK: ${trainer[key].attack}</p>`;
@@ -119,7 +120,7 @@ function showPokemon(trainer, key, divId){
     } //else {
     //     $(`#${divId}`).append([v,w,x,y,z]);
     // }
-    $(`#${divId}`).append([v,w,x,y,z]);
+    $(`#${divId}`).append([v,u,w,x,y,z]);
 }
 
 $('#michael-left').click(function(){
@@ -178,4 +179,4 @@ getPokeData(`${apiBase}127`, isaacPokemon);
 
 getPokeData(`${apiBase}68`, michaelPokemon);
 getPokeData(`${apiBase}94`, michaelPokemon);
-getPokeData(`${apiBase}129`, michaelPokemon);
+getPokeData(`${apiBase}magikarp`, michaelPokemon);
