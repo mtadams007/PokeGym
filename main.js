@@ -57,7 +57,7 @@ function PokemonObj(name, sprite, hp, attack, defense, abilities){
 // DEPENDANCY
 
 function abilityLoop(abilities){
-    let abilityArr = []; 
+    let abilityArr = [];
     for(let i = 0; i < abilities.length; i++){
         abilityArr.push(" " + abilities[i].ability.name);
     }
@@ -66,7 +66,7 @@ function abilityLoop(abilities){
 
 // happens on success of the api call
 
-function createPokemon(data){ 
+function createPokemon(data){
     pokemon[`${data.name}`] = new PokemonObj(
         data.name,
         data.sprites.front_default,
@@ -77,6 +77,7 @@ function createPokemon(data){
     )
     console.log(`one pokemon '${data.name}' added to hash`);
 };
+
 
 // CODE I MIGHT WANT TO KEEP AND TWEAK
 
@@ -280,4 +281,3 @@ function createPokemon(data){
 //   }
 //   isOff = !isOff;
 // })
-
