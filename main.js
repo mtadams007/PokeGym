@@ -11,6 +11,7 @@ let michaelLeader = {};
 let isaacLeader = {};
 //the pokemon that is being displayed
 let currentPokemon = 0;
+
 // wrapper for ajax call
 function getPokeData(endpoint, done) {
     $.ajax({url: endpoint , success: done});
@@ -26,8 +27,6 @@ function pressbutton(){
     $(this).removeClass('.pressed');
     $(this).addClass('.unpressed');
 }
-
-$('.btn').on("click", pressbutton);
 
 class Trainer {
  constructor(arr) {
@@ -123,18 +122,54 @@ function showPokemon(trainer, key, divId){
     $(`#${divId}`).append([v,w,x,y,z]);
 }
 
+$('#michael-left').click(function(){
+    if(currentPokemon == 0){
+        currentPokemon = 2;
+    } else {
+    currentPokemon -= 1;
+    }
+    showPokemon(michaelLeader, currentPokemon, 'michaelTrainer');
+})
+
+$('#michael-right').click(function(){
+   if(currentPokemon == 2){
+        currentPokemon = 0;
+    } else {
+    currentPokemon += 1;
+    }
+    showPokemon(michaelLeader, currentPokemon, 'michaelTrainer');
+})
+
+$('#isaac-left').click(function(){
+    if(currentPokemon == 0){
+        currentPokemon = 2;
+    } else {
+    currentPokemon -= 1;
+    }
+    showPokemon(isaacLeader, currentPokemon, 'isaacTrainer');
+})
+
+$('#isaac-right').click(function(){
+   if(currentPokemon == 2){
+        currentPokemon = 0;
+    } else {
+    currentPokemon += 1;
+    }
+    showPokemon(isaacLeader, currentPokemon, 'isaacTrainer');
+})
+
+
 $('#michael-on').click(function(powerOn){
   console.log('mclick');
     michaelLeader = makeTrainer(michael);
-    showPokemon(michaelLeader, 0, 'michaelTrainer');
+    showPokemon(michaelLeader, currentPokemon, 'michaelTrainer');
   });
 
 $('#isaac-on').click(function(powerOn){
   console.log('clicked');
     isaacLeader = makeTrainer(isaac);
-    showPokemon(isaacLeader, 0, 'isaacTrainer');
+    showPokemon(isaacLeader, currentPokemon, 'isaacTrainer');
   });
-
 
 
 getPokeData(`${apiBase}6`, isaacPokemon);
