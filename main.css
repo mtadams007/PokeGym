@@ -55,11 +55,42 @@ display: flex;
     width: 50px;
     background-color: yellow;
     display: inline-block;
+    box-shadow: 1px 2px orange;
+    position: absolute;
 }
 
+.poke-button:active {
+  box-shadow: 0px 0px orange;
+  margin-top: 7px;
+}
 .on-button {
+    margin-top: 5px;
     height: 45px;
     width: 50px;
     background-color: blue;
     display: inline-block;
+    box-shadow: 1px 2px black;
+    position: absolute;
+    color: white;
+}
+
+.on-button:active {
+  margin-top: 7px;
+  box-shadow: 0 0 inset;
+}
+
+#isaac-left {
+  margin-left: -150px;
+}
+
+#isaac-right {
+  margin-left: 150px;
+}
+
+#michael-left {
+  margin-left: -150px;
+}
+
+#michael-right {
+  margin-left: 150px;
 }
